@@ -1,27 +1,30 @@
-from sequencia_graus import * # importada função para contagem e checagem de graus
+from math import sqrt
 
 def leitura():
-    # abre o arquivo 'matrizAdjacencia.txt' e salva na variável file
     with open("matrizAdjacencia.txt", "r") as file:
-        # file.readlines() lê percorre todas as linhas do arquivo, e cada linha é salva, durante a iteração, na variável linhas
-        # [:-1] ignora o '\n' (quebra de linha) da linha em questão.
-        # '.split()' separa a linha por espaço e salva os itens em uma lista, cada lista é salva em 'grafo', formando uma matriz
-        grafo = [linhas[:-1].split(" ") for linhas in file.readlines()]
-        # percorre todos os elementos de cada coluna da matriz grafo, através da checagem do seu tamanho (len(grafo)) e converte seus elementos pra inteiro
-        # eles elementos vão ser salvos em uma lista única e temporária (indicado através do primeiro '[]')
-        # '[0+(i*len(grafo)):len(grafo)+(i*len(grafo))] for i in range(0, len(grafo))' vai gerar listas a partir de intervalos referentes ao tamanho das linhas e colunas
-        grafo = [[int(grafo[i][j]) for i in range(0, len(grafo)) for j in range(0, len(grafo))][0+(i*len(grafo)):len(grafo)+(i*len(grafo))] for i in range(0, len(grafo))]
+        # lê todos os elementos do arquivo, substitui as quebras de linha por espaço e separa os itens por espaço
+        # '[-1]' ignora o último caracter do arquivo, pois seria uma quebra de linha que foi substituida
+        grafo = file.read().replace("\n", " ")[:-1].split(" ")
+        # quantidade de linhas (que é igual ao de colunas) vai ser a raiz quadrada da quantidade de elementos
+        tamanho = int(sqrt(len(grafo)))
+        # converte todos os itens pra inteiro (padrão é string)
+        # separa os itens em listas do tamanho da quantidade de colunas e adiciona cada uma em 'grafo', formando uma matriz
+        grafo = [[int(grafo[i]) for i in range(0, len(grafo))][0+(i*tamanho):tamanho+(i*tamanho)] for i in range(0, tamanho)]
     return grafo
 
 def verificaSimples(matrizAdjacencia):
     ehSimples = True
-    motivos = []
+    motivos = [] # lista que vai salvar motivos de não ser simples, caso seja o caso
 
     for linha in range(0, len(matrizAdjacencia)):
+        # como a matriz é espelhada diagonalmente só há a necessidade de verificar uma metade, incluindo a diagonal principal
+        # para isso, basta somar o número da linha na posição inicial da coluna
         for coluna in range((0+linha), len(matrizAdjacencia[linha])):
+            # verifica laços, verificando se trata-se do mesmo vértica na linha e coluna
             if((linha == coluna) and (matrizAdjacencia[linha][coluna] > 0)):
                 ehSimples = False
                 motivos.append("Há %d laço(s) no vértice v%d" %(matrizAdjacencia[linha][coluna], (linha+1)))
+            # verifica se há mais de uma aresta entre dois vértices
             elif(matrizAdjacencia[linha][coluna] > 1):
                 ehSimples = False
                 motivos.append("Há arestas múltiplas entre v%d e v%d" %(linha+1, coluna+1))
@@ -30,14 +33,34 @@ def verificaSimples(matrizAdjacencia):
         print("O grafo é simples, pois não possui arestas múltiplas ou laços\n")
     else:
         print("O grafo não é simples\n\nMotivos: ")
-        for i in motivos:
+        for i in motivos: # percorre a lista de motivos e printa eles
             print(i)
-        print("\n")
 
+    print("")
+
+    # retorna o resultado pra ser usado na função de verificar se é completo
     return ehSimples
 
-def verificaGraus(matrizAdjacencia):
-    pass
+def verificaGraus(matrizAdj):
+    lista_laços = []
+    lista_ncrescente = [0 for lines in matrizAdj]
+    for contador, linhas in enumerate(matrizAdj): # contadas linhas e colunas
+        for indices, itens in enumerate(linhas):
+            if contador == indices and itens != 0: # Salvo numa lista de laços as posições onde ocorrem laços (vértice possui ligação com si mesmo)
+                lista_laços.append((contador, itens))
+
+    if len(lista_laços) == 0: # Se a lista de laços for vazia, simplesmente é realizada a soma e logo depois, o rearranjo para obter os graus
+        lista_ncrescente = sorted([sum(linhas) for linhas in matrizAdj], reverse=True)
+    else:
+        for laços in lista_laços:
+            lista_ncrescente[laços[0]] = laços[1] # quantidade de laços é somada ao numero de graus
+        for linhas in enumerate(matrizAdj):
+            lista_ncrescente[linhas[0]] += sum(linhas[1])
+        lista_ncrescente = sorted(lista_ncrescente, reverse=True)
+    if (sum(lista_ncrescente) % 2) != 0: # Se par, uma lista de graus válida será retornada
+        return False
+    else:                               # Se impar, a função retorna falso
+        print("A sequência de graus do grafo é: ", lista_ncrescente, "\n")
 
 def verificaArestas(matrizAdjacencia):
     quantidadeArestas = 0
@@ -45,15 +68,17 @@ def verificaArestas(matrizAdjacencia):
         for coluna in range((0+linha), len(matrizAdjacencia[linha])):
             quantidadeArestas += matrizAdjacencia[linha][coluna]
 
-    print("O grafo possui %d arestas\n\n" %(quantidadeArestas))
+    print("O grafo possui %d arestas\n" %(quantidadeArestas))
 
 def verificaCompleto(matrizAdjacencia, ehSimples):
     pass
 
 def main():
     matrizAdjacencia = leitura()
-    verificaSimples(matrizAdjacencia)
+    ehSimples = verificaSimples(matrizAdjacencia)
     verificaGraus(matrizAdjacencia)
-    verificaCompleto(matrizAdjacencia, verificaArestas(matrizAdjacencia))
+    verificaArestas(matrizAdjacencia)
+    # a função de verificaSimples é chamada dentro de verificaCompleto, já que seu return será utilizado
+    verificaCompleto(matrizAdjacencia, ehSimples)
 
 main()
