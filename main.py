@@ -1,3 +1,5 @@
+from sequencia_graus import * # importada função para contagem e checagem de graus
+
 def leitura():
     # abre o arquivo 'matrizAdjacencia.txt' e salva na variável file
     with open("matrizAdjacencia.txt", "r") as file:
@@ -50,8 +52,13 @@ def verificaCompleto(matrizAdjacencia, ehSimples):
 
 def main():
     matrizAdjacencia = leitura()
+<<<<<<< HEAD
     verificaSimples(matrizAdjacencia)
     verificaGraus(matrizAdjacencia)
     verificaCompleto(matrizAdjacencia, verificaArestas(matrizAdjacencia))
+=======
+    print(matrizAdjacencia)
+    contadorGraus(matrizAdjacencia)
+>>>>>>> 9783256e0e383cec621261e49a71d4d629571cf4
 
 main()
