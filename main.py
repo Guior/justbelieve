@@ -43,7 +43,7 @@ def verificaSimples(matrizAdjacencia):
 
 def verificaGraus(matrizAdj):
     lista_laços = []
-    lista_ncrescente = [0 for lines in matrizAdj]
+    lista_ncrescente = [0 for lines in matrizAdj] # linhas populadas com zeros
     for contador, linhas in enumerate(matrizAdj): # contadas linhas e colunas
         for indices, itens in enumerate(linhas):
             if contador == indices and itens != 0: # Salvo numa lista de laços as posições onde ocorrem laços (vértice possui ligação com si mesmo)
@@ -70,15 +70,23 @@ def verificaArestas(matrizAdjacencia):
 
     print("O grafo possui %d arestas\n" %(quantidadeArestas))
 
-def verificaCompleto(matrizAdjacencia, ehSimples):
-    pass
+def verificaCompleto(matrizAdjacencia):
+    contador = 0
+    for i, linhas in enumerate(matrizAdjacencia):
+        contador += linhas[i] # Uma vez que o grafo já se caracteriza como simples, todos os elementos da diagonal principal são somados, se o resultado for 0, o grafo é completo
 
+    return contador == 0
+    
 def main():
     matrizAdjacencia = leitura()
     ehSimples = verificaSimples(matrizAdjacencia)
     verificaGraus(matrizAdjacencia)
     verificaArestas(matrizAdjacencia)
     # a função de verificaSimples é chamada dentro de verificaCompleto, já que seu return será utilizado
-    verificaCompleto(matrizAdjacencia, ehSimples)
+    if ehSimples: 
+        if(verificaCompleto(matrizAdjacencia)):
+            print("O grafo é completo")
+    else:
+        print("O grafo não é completo")
 
 main()
