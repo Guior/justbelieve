@@ -30,7 +30,7 @@ def verificaSimples(matrizAdjacencia):
                 motivos.append("Há arestas múltiplas entre v%d e v%d" %(linha+1, coluna+1))
 
     if ehSimples:
-        print("O grafo é simples, pois não possui arestas múltiplas ou laços\n")
+        print("O grafo é simples, pois não possui arestas múltiplas ou laços")
     else:
         print("O grafo não é simples\n\nMotivos: ")
         for i in motivos: # percorre a lista de motivos e printa eles
@@ -73,8 +73,10 @@ def verificaArestas(matrizAdjacencia):
 def verificaCompleto(matrizAdjacencia):
     contador = 0
     for i, linhas in enumerate(matrizAdjacencia):
-        contador += linhas[i] # Uma vez que o grafo já se caracteriza como simples, todos os elementos da diagonal principal são somados, se o resultado for 0, o grafo é completo
-
+        if linhas[i] == 0 and (0 not in linhas[:i] and 0 not in linhas[i+1:]): # Uma vez que o grafo já se caracteriza como simples, todos os elementos da diagonal principal são somados, se o resultado for 0, o grafo é completo
+            contador += linhas[i]
+        else:
+            contador += 1
     return contador == 0
     
 def main():
@@ -86,6 +88,8 @@ def main():
     if ehSimples: 
         if(verificaCompleto(matrizAdjacencia)):
             print("O grafo é completo")
+        else:
+            print("O grafo é simples e não completo")
     else:
         print("O grafo não é completo")
 
