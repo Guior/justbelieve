@@ -52,13 +52,8 @@ def verificaCompleto(matrizAdjacencia, ehSimples):
 
 def main():
     matrizAdjacencia = leitura()
-<<<<<<< HEAD
     verificaSimples(matrizAdjacencia)
     verificaGraus(matrizAdjacencia)
     verificaCompleto(matrizAdjacencia, verificaArestas(matrizAdjacencia))
-=======
-    print(matrizAdjacencia)
-    contadorGraus(matrizAdjacencia)
->>>>>>> 9783256e0e383cec621261e49a71d4d629571cf4
 
 main()
