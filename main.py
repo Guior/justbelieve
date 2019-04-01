@@ -1,3 +1,5 @@
+from sequencia_graus import * # importada função para contagem e checagem de graus
+
 def leitura():
     file = open("matrizAdjacencia.txt", "r")
     matrizAdjacencia = []
@@ -11,5 +13,7 @@ def leitura():
 
 def main():
     matrizAdjacencia = leitura()
+    print(matrizAdjacencia)
+    contadorGraus(matrizAdjacencia)
 
 main()
