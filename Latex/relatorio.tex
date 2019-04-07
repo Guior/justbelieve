@@ -45,8 +45,33 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
 \end{itemize}
 
 \subsubsection{Laços}
+    Um laço é uma aresta que possui sua origem e destino em um mesmo vértice, ou seja, incide em um único vértice.
+    
+    \vspace{0.5in}
+    
+    Exemplo:
+    
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+            \tikzset{LabelStyle/.style= {fill = white}}
+            \Vertex[x=0, y=2]{V1}
+            \Vertex[x=2, y=0]{V2}
+            \Vertex[x=4, y=3]{V3}
+            \Vertex[x=6, y=0]{V4}
+            \Edge[label=e1](V1)(V2)
+            \Edge[label=e3](V2)(V3)
+            \Edge[label=e4](V3)(V4)
+            \Edge[label=e5](V4)(V2)
+            \Edge[label=e2](V1)(V3)
+            \Loop[dist=3cm,dir=WE, style={thick,-}, label=e7](V1)
+            \Loop[dist=3cm,dir=EA, style={thick,-}, label=e6](V4)
+        \end{tikzpicture}
+    \end{center}
+    
+    As arestas \textbf{e6} e \textbf{e7} são laços.
+
+        
 \subsection{Representação matricial de um grafo}
-\subsection{Matriz de adjacência |A| e matriz incidência |M| }
 
     Para fins de representação não-gráfica dos grafos utiliza-se da matriz de adjacência ou da matriz de incidência.
     
@@ -56,8 +81,13 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
     \vspace{0.5in}
     
+    Exemplo:
+    
     \begin{multicols}{2}
-        \begin{tikzpicture}[scale=1]
+        \begin{center}
+        G:
+        \end{center}
+        \begin{tikzpicture}[scale=0.8]
             \Vertex[x=1, y=4]{V1}
             \Vertex[x=4, y=4.5]{V2}
             \Vertex[x=2, y=2.5]{V3}
@@ -72,6 +102,9 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
             \Edge(V1)(V2)
         \end{tikzpicture}
         
+        \begin{center}
+        A(G):
+        \end{center}
         \begin{tabular}{ccccccc}
                 & V1 & V2 & V3 & V4 & V5 & V6 \\
                 V1 & 0  & 2  & 1  & 0  & 0  & 0  \\
@@ -81,8 +114,15 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
                 V5 & 0  & 0  & 0  & 1  & 0  & 1  \\
                 V6 & 0  & 1  & 0  & 0  & 1  & 0 
         \end{tabular}
-        
     \end{multicols}
+    
+    \vspace{0.5in}
+    
+    Sendo o elemento \textbf{aij} o número de arestas entre a linha \textbf{Vi} e a coluna \textbf{Vj}. 
+    
+    \indent Note que por os elementos das linha e colunas se repetirem ocorre um espelhamento diagonal das arestas, ou seja, para a análise do grafo basta observar uma de suas metades. 
+
+    \indent O algoritmo de análise de grafos trabalha a partir dessa matriz, e para a sua análise foi considerado apenas uma de suas metades.
     
 \subsubsection{Matriz de incidência |M|}
 
