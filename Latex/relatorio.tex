@@ -85,6 +85,55 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     \end{multicols}
     
 \subsubsection{Matriz de incidência |M|}
+
+    A matriz de adjacência \textbf{M(G)} é uma matriz com \textbf{|V|} linhas e \textbf{|E|} colunas, tal que seus elementos (\textbf{aij}) representam quantas vezes a aresta \textbf{ej} incide no vértice \textbf{Vi}.
+    
+    \vspace{0.5in}
+    
+    Exemplo:
+    
+    \begin{multicols}{2}
+        \begin{center}
+        G:
+        \end{center}
+        \begin{tikzpicture}[scale=1]
+            \tikzset{LabelStyle/.style= {fill = white}}
+            \Vertex[x=1, y=4]{V1}
+            \Vertex[x=4, y=4.5]{V2}
+            \Vertex[x=2, y=2.5]{V3}
+            \Vertex[x=0, y=2.2]{V4}
+            \Vertex[x=3.5, y=0]{V5}
+            \Vertex[x=4.2, y=2.3]{V6}
+            \Edge[label=e3](V1)(V3)
+            \Edge[label=e4](V3)(V4)
+            \Edge[label=e6](V4)(V5)
+            \Edge[label=e7](V5)(V6)
+            \Edge[label=e8](V6)(V2)
+            \Loop[dist=3cm,dir=WE, style={thick,-}, label=e5](V4)
+            \tikzset{EdgeStyle/.append style = {bend right}}
+            \Edge[label=e1](V2)(V1)
+            \tikzset{EdgeStyle/.append style = {bend right}}
+            \Edge[label=e2](V1)(V2)
+        \end{tikzpicture}
+        
+        \begin{center}
+        M(G):
+        \end{center}
+        \begin{tabular}{ccccccccc}
+            & e1 & e2 & e3 & e4 & e5 & e6 & e7 & e8 \\
+            V1 & 1  & 1  & 1  & 0  & 0  & 0  & 0  & 0  \\
+            V2 & 1  & 1  & 0  & 0  & 0  & 0  & 0  & 1  \\
+            V3 & 0  & 0  & 1  & 1  & 0  & 0  & 0  & 0  \\
+            V4 & 0  & 0  & 0  & 1  & 2  & 1  & 0  & 0  \\
+            V5 & 0  & 0  & 0  & 0  & 0  & 1  & 1  & 0  \\
+            V6 & 0  & 0  & 0  & 0  & 0  & 0  & 1  & 1 
+        \end{tabular}
+    \end{multicols}
+    
+    \vspace{0.5in}
+    
+    Note que, por uma aresta estar conectada sempre em dois pontos, a soma dos elementos de cada coluna é 2.
+    
 \subsection{Grafo simples}
 
 Um grafo é simples se não possui laços ou arestas múltiplas, logo, no exemplo de um grafo tendo $\textbf{V} = \{v1, v2, v3, v4\}$ e $\textbf{E} = \{e1, e2, e3, e4, e5\}$, sua matriz de adjacência \textbf{A} pode ser dada por:
