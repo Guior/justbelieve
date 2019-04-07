@@ -1,5 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage[brazilian]{babel} %pacote babel para tweaks em relaçao à linguagem
+\usepackage{amsmath}
 \usepackage[utf8]{inputenc} %acentos e carácteres específicos
 \usepackage[scaled]{helvet}
 \renewcommand\familydefault{\sfdefault}
@@ -53,7 +54,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
 
     A matriz de adjacência consiste em uma matriz com \textbf{n}-linhas e \textbf{n}-colunas, sendo \textbf{n} cada vértice do grafo. Os elementos da matriz representam as arestas do grafo, portanto, trata-se da relação de conexões entre seus vértices.
     
-    \vskip 0.5in
+    \vspace{0.5in}
     
     \begin{multicols}{2}
         \begin{tikzpicture}[scale=1]
@@ -85,7 +86,32 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
 \subsubsection{Matriz de incidência |M|}
 \subsection{Grafo simples}
-\subsection{Grafo bipartido}
+
+Um grafo é simples se não possui laços ou arestas múltiplas, logo, no exemplo de um grafo tendo $\textbf{V} = \{v1, v2, v3, v4\}$ e $\textbf{E} = \{e1, e2, e3, e4, e5\}$, sua matriz de adjacência \textbf{A} pode ser dada por:
+ 
+
+    \begin{multicols}{2}
+	    \[
+        \begin{tikzpicture}[scale=1]
+            \Vertex[x=1, y=4]{V1}
+            \Vertex[x=4, y=4]{V2}
+            \Vertex[x=4, y=1]{V3}
+            \Vertex[x=1, y=1]{V4}
+	    \Edges(V1,V2,V2,V3,V3,V4,V4,V1,V4,V2,V1,V3)
+        \end{tikzpicture}
+\]
+\[
+	A(G) = 
+\begin{bmatrix}
+	0	&1	&1 	&1 \\
+	1	&0	&1	&1 \\
+	1	&1	&0	&1  \\
+	1	&1	&1	&0
+\end{bmatrix}
+\]
+\end{multicols}
+\textbf{obs}: Note que a diagonal principal da matriz indica se existem ou não, laços. Um número maior que 1 indicaria que existem mais de uma aresta ligando os dois vértices. Podem existir vértices de grau 0 em grafos simples.
+\subsubsection{Grafo bipartido}
 \subsubsection{Bipartido completo}
 \subsection{Graus de um grafo}
 \subsection{Sequência gráfica}
