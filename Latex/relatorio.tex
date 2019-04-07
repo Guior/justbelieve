@@ -5,7 +5,13 @@
 \renewcommand\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
 \usepackage{csquotes} %csquotes auxilia babel
-\usepackage{indentfirst} % abnt requere primeiro parágrafo "indentado"
+\usepackage[
+bottom=2cm,
+top=3cm,
+left=3cm,
+right=2cm,
+]{geometry}  %geometry para definição das margens
+\usepackage{indentfirst} %primeiro parágrafo "indentado"
 \begin{document}
 \title{\textbf{Teoria dos Grafos}\\ \small{Grafos: Tipos, matrizes e graus de um grafo.}}
 \author{Leon Ferreira Bellini\\
@@ -18,7 +24,7 @@
 \maketitle
 \section{Introdução}
 \section{O conceito de grafos}
-\subsection{Vértices, arestas e função de incidência {\phi}}
+\subsection{Vértices, arestas e função de incidência {$\varphi$}}
 \subsubsection{Laços}
 \subsection{Grafo simples}
 \subsection{Grafo bipartido}
