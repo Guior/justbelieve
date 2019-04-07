@@ -23,10 +23,25 @@ right=2cm,
 \date{}
 \maketitle
 \section{Introdução}
+Um grafo representa de forma simples e eficaz as interdependências entre os elementos de um conjunto. A utilidade da aplicação de grafos tem se mostrado presente em variadas micro e macroestruturas, como a podendo representar cidades, linhas ferroviárias, fluxo de dados ou até mesmo circuitos eletrônicos. A forma de como é representado pode ser dita como didática e facilmente compreendida. Foi elaborado um algorítmo para que fossem aplicados os diversos conceitos aprendidos em aula, este algorítmo sendo desenvolvido em \textbf{Python}, linguagem a qual permite que o programa funcione em variadas plataformas como \textit{GNU/Linux} e \textit{Windows}. 
 \section{O conceito de grafos}
 \subsection{Vértices, arestas e função de incidência {$\varphi$}}
+Para que haja um grafo é necessário obter o conjunto de \textbf{vértices}, dado por $\textbf{N} = \{v1, v2, \ldots, vn\}$, estes também chamados de nós, os quais representam os componentes, itens ou elementos que receberão, ou não, ligações entre si, tais ligações chamadas de \textbf{arestas}, as quais também formam um conjunto, dado por $\textbf{E} = \{e1, e2, \ldots, en\}$.
+
+Existe, também, uma \textbf{função de incidência} $ \varphi $ (phi), a qual associa um par de vértices para cada aresta, como por exemplo, $ \varphi(e) = \{ a, b \}$, ou seja, \textit{e} incide em \textit{a} e \textit{b}.
+
+Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \varphi) \]
+
+\subsubsection{Casos Específicos}
+
+\begin{itemize}
+	\item\textbf{Grafo Finito}:  \textbf{V} e \textbf{E} são finitos.
+	\item\textbf{Grafo Trivial}: Possui apenas um vértice.
+	\item\textbf{Grafo Nulo}: Não possui arestas.
+\end{itemize}
+
 \subsubsection{Laços}
-\subsection{Matriz de adjacência |A| e matriz incidência |M| }
+\subsection{Representação matricial de um grafo}
 \subsubsection{Matriz de adjacência}
 \subsubsection{Matriz de incidência}
 \subsection{Grafo simples}
