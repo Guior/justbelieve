@@ -263,8 +263,67 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
 \end{center}
 
 
-\subsection{Graus de um grafo}
+\subsection{Graus de um vértice}
+
+    Cada vértice \textbf{V} de um grafo \textbf{G = (V, E)} possui um número \textbf{n} de arestas incidentes. Esse número \textbf{n} é denotado como o grau do vértice.
+    
+    \begin{multicols}{2}
+        \begin{center}
+        G:
+        \end{center}
+        \begin{tikzpicture}[scale=1]
+            \tikzset{LabelStyle/.style= {fill = white}}
+            \Vertex[x=4, y=6]{V1}
+            \Vertex[x=0, y=3]{V2}
+            \Vertex[x=4, y=3]{V3}
+            \Vertex[x=0, y=0]{V4}
+            \Vertex[x=4, y=0]{V5}
+            \Edge[label=e1](V1)(V2)
+            \Edge[label=e2](V1)(V3)
+            \Edge[label=e3](V3)(V5)
+            \Edge[label=e4](V5)(V4)
+            \Edge[label=e5](V4)(V2)
+            \Edge[label=e6](V2)(V5)
+            \Loop[dist=3cm,dir=WE, style={thick,-}, label=e7](V2)
+        \end{tikzpicture}
+    
+        A(G):
+        \begin{tabular}{cccccc}
+            & V1 & V2 & V3 & V4 & V5 \\
+            V1 & 0  & 1  & 1  & 0  & 0  \\
+            V2 & 1  & 1  & 0  & 1  & 1  \\
+            V3 & 1  & 0  & 0  & 0  & 1  \\
+            V4 & 0  & 1  & 0  & 0  & 1  \\
+            V5 & 0  & 1  & 1  & 1  & 0 
+        \end{tabular}
+        
+        \vspace{0.4in}
+        Graus:
+        \begin{tabular}{cc}
+            & Grau \\
+            V1 & 2    \\
+            V2 & 5    \\
+            V3 & 2    \\
+            V4 & 2    \\
+            V5 & 3   
+        \end{tabular}
+    \end{multicols}
+    
+    Note que os laços incidem duas vezes no vértice, portanto ele equivale a 2 graus, como o caso da aresta \textbf{e7}.
+    
+    \indent Para calcular o grau em uma matriz adjacência basta somar todos os elementos da linha ou coluna ignorando o elemento da diagonal principal + 2 * o elemento da diagonal principal, que indica os laços.
+    
 \subsection{Sequência gráfica}
+
+    A sequência de graus de um grafo \textbf{G = (V, E)} é a sequência não-crescente do grau de todos os vértices \textbf{V} desse grafo. 
+    
+    \indent Para o caso da figura anterior a sequência seria:
+    
+    \begin{center}
+     5, 3, 2, 2, 2
+    \end{center}
+
+
 \section{Conclusão}
 
 \end{document}
