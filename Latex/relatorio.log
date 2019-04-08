@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.26)  7 APR 2019 21:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.26)  7 APR 2019 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -722,7 +722,14 @@ Overfull \hbox (0.73277pt too wide) in paragraph at lines 183--192
 [] 
  []
 
-[4] [5] (./relatorio.aux) ) 
+[4]
+Overfull \vbox (81.75745pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (81.75745pt too high) has occurred while \output is active []
+
+
+[5] [6] (./relatorio.aux) ) 
 Here is how much of TeX's memory you used:
  15782 strings out of 492616
  299372 string characters out of 6135177
@@ -738,10 +745,10 @@ type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
 ></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-d
 ist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on relatorio.pdf (5 pages, 942097 bytes).
+Output written on relatorio.pdf (6 pages, 944461 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

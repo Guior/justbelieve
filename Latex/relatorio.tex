@@ -200,7 +200,11 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
 Um grafo é simples se não possui laços ou arestas múltiplas, logo, tendo-se como exemplo um grafo \textbf{G} possuindo $\textbf{V} = \{v1, v2, v3, v4\}$ e $\textbf{E} = \{e1, e2, e3, e4, e5\}$, sua matriz de adjacência \textbf{A} pode ser dada por:
  
 
+\begin{figure}[hbt!]
+	
     \begin{multicols}{2}
+	    \centering
+	    G
 	    \[
         \begin{tikzpicture}[scale=1]
             \Vertex[x=1, y=4]{V1}
@@ -218,8 +222,10 @@ Um grafo é simples se não possui laços ou arestas múltiplas, logo, tendo-se 
 	1	&1	&0	&1  \\
 	1	&1	&1	&0
 \end{bmatrix}
+\caption{Matriz de adjacência do grafo \textbf{G}}
 \]
 \end{multicols}
+\end{figure}
 \textbf{obs}: Note que a diagonal principal da matriz indica se existem ou não, laços. Um número maior que 1 indicaria que existem mais de uma aresta ligando os dois vértices. Podem existir vértices de grau 0 em grafos simples.
 
 \newpage
@@ -266,7 +272,8 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
 \subsection{Graus de um vértice}
 
     Cada vértice \textbf{V} de um grafo \textbf{G = (V, E)} possui um número \textbf{n} de arestas incidentes. Esse número \textbf{n} é denotado como o grau do vértice.
-    
+
+    \newpage    
     \begin{multicols}{2}
         \begin{center}
         G:
