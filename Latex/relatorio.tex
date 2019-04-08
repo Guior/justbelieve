@@ -65,32 +65,38 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
 	\item\textbf{Grafo Nulo}: Não possui arestas.
 \end{itemize}
 
+\pagebreak
+
 \subsubsection{Laços}
     Um laço é uma aresta que possui sua origem e destino em um mesmo vértice, ou seja, incide em um único vértice.
     
     \vspace{0.5in}
     
     Exemplo:
+    \begin{figure}[hbt!]
+        \begin{center}
+            G
+            
+            \begin{tikzpicture}[scale=1]
+                \tikzset{LabelStyle/.style= {fill = white}}
+                \Vertex[x=0, y=2]{V1}
+                \Vertex[x=2, y=0]{V2}
+                \Vertex[x=4, y=3]{V3}
+                \Vertex[x=6, y=0]{V4}
+                \Edge[label=e1](V1)(V2)
+                \Edge[label=e3](V2)(V3)
+                \Edge[label=e4](V3)(V4)
+                \Edge[label=e5](V4)(V2)
+                \Edge[label=e2](V1)(V3)
+                \Loop[dist=3cm,dir=WE, style={thick,-}, label=e7](V1)
+                \Loop[dist=3cm,dir=EA, style={thick,-}, label=e6](V4)
+            \end{tikzpicture}
+            \caption{Exemplo de grafo com laços}
+        \end{center}
+    \end{figure}
     
-    \begin{center}
-        \begin{tikzpicture}[scale=1]
-            \tikzset{LabelStyle/.style= {fill = white}}
-            \Vertex[x=0, y=2]{V1}
-            \Vertex[x=2, y=0]{V2}
-            \Vertex[x=4, y=3]{V3}
-            \Vertex[x=6, y=0]{V4}
-            \Edge[label=e1](V1)(V2)
-            \Edge[label=e3](V2)(V3)
-            \Edge[label=e4](V3)(V4)
-            \Edge[label=e5](V4)(V2)
-            \Edge[label=e2](V1)(V3)
-            \Loop[dist=3cm,dir=WE, style={thick,-}, label=e7](V1)
-            \Loop[dist=3cm,dir=EA, style={thick,-}, label=e6](V4)
-        \end{tikzpicture}
-    \end{center}
-    
+    \paragraph{}
     As arestas \textbf{e6} e \textbf{e7} são laços.
-
         
 \subsection{Representação matricial de um grafo}
 
@@ -102,40 +108,43 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
     \vspace{0.5in}
     
+    \pagebreak
+    
     Exemplo:
     
-    \begin{multicols}{2}
-        \begin{center}
-        G\:
-        \end{center}
-        \begin{tikzpicture}[scale=0.8]
-            \Vertex[x=1, y=4]{V1}
-            \Vertex[x=4, y=4.5]{V2}
-            \Vertex[x=2, y=2.5]{V3}
-            \Vertex[x=0, y=2.2]{V4}
-            \Vertex[x=3.5, y=0]{V5}
-            \Vertex[x=4.2, y=2.3]{V6}
-            \Edges(V2,V6,V5,V4,V4,V3,V1)
-            \Loop[dist=3cm,dir=WE, style={thick,-}](V4)
-            \tikzset{EdgeStyle/.append style = {bend right}}
-            \Edge(V2)(V1)
-            \tikzset{EdgeStyle/.append style = {bend right}}
-            \Edge(V1)(V2)
-        \end{tikzpicture}
-        
-        \begin{center}
-        A (G):
-        \end{center}
-        \begin{tabular}{ccccccc}
-                & V1 & V2 & V3 & V4 & V5 & V6 \\
-                V1 & 0  & 2  & 1  & 0  & 0  & 0  \\
-                V2 & 2  & 0  & 0  & 0  & 0  & 1  \\
-                V3 & 1  & 0  & 0  & 1  & 0  & 0  \\
-                V4 & 0  & 0  & 1  & 1  & 1  & 0  \\
-                V5 & 0  & 0  & 0  & 1  & 0  & 1  \\
-                V6 & 0  & 1  & 0  & 0  & 1  & 0 
-        \end{tabular}
-    \end{multicols}
+    \begin{figure}[hbt!]
+        \begin{multicols}{2}
+            \begin{center}
+            G\:
+            \end{center}
+            \begin{tikzpicture}[scale=0.8]
+                \Vertex[x=1, y=4]{V1}
+                \Vertex[x=4, y=4.5]{V2}
+                \Vertex[x=2, y=2.5]{V3}
+                \Vertex[x=0, y=2.2]{V4}
+                \Vertex[x=3.5, y=0]{V5}
+                \Vertex[x=4.2, y=2.3]{V6}
+                \Edges(V2,V6,V5,V4,V4,V3,V1)
+                \Loop[dist=3cm,dir=WE, style={thick,-}](V4)
+                \tikzset{EdgeStyle/.append style = {bend right}}
+                \Edge(V2)(V1)
+                \tikzset{EdgeStyle/.append style = {bend right}}
+                \Edge(V1)(V2)
+            \end{tikzpicture}
+            
+            A(G):
+            \begin{tabular}{ccccccc}
+                    & V1 & V2 & V3 & V4 & V5 & V6 \\
+                    V1 & 0  & 2  & 1  & 0  & 0  & 0  \\
+                    V2 & 2  & 0  & 0  & 0  & 0  & 1  \\
+                    V3 & 1  & 0  & 0  & 1  & 0  & 0  \\
+                    V4 & 0  & 0  & 1  & 1  & 1  & 0  \\
+                    V5 & 0  & 0  & 0  & 1  & 0  & 1  \\
+                    V6 & 0  & 1  & 0  & 0  & 1  & 0 
+            \end{tabular}
+        \end{multicols}
+        \caption{Exemplo de matriz de adjacência}
+    \end{figure}
     
     \vspace{0.5in}
     
@@ -143,7 +152,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
     \indent Note que por os elementos das linha e colunas se repetirem ocorre um espelhamento diagonal das arestas, ou seja, para a análise do grafo basta observar uma de suas metades. 
 
-    \indent O algoritmo de análise de grafos trabalha a partir dessa matriz, e para a sua análise foi considerado apenas uma de suas metades.
+    \indent \textbf{obs:} O algoritmo de análise de grafos trabalha a partir dessa matriz.
     
 \subsubsection{Matriz de incidência |M|}
 
@@ -153,43 +162,46 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
     Exemplo:
     
-    \begin{multicols}{2}
-        \begin{center}
-        G\:
-        \end{center}
-        \begin{tikzpicture}[scale=1]
-            \tikzset{LabelStyle/.style= {fill = white}}
-            \Vertex[x=1, y=4]{V1}
-            \Vertex[x=4, y=4.5]{V2}
-            \Vertex[x=2, y=2.5]{V3}
-            \Vertex[x=0, y=2.2]{V4}
-            \Vertex[x=3.5, y=0]{V5}
-            \Vertex[x=4.2, y=2.3]{V6}
-            \Edge[label=e3](V1)(V3)
-            \Edge[label=e4](V3)(V4)
-            \Edge[label=e6](V4)(V5)
-            \Edge[label=e7](V5)(V6)
-            \Edge[label=e8](V6)(V2)
-            \Loop[dist=3cm,dir=WE, style={thick,-}, label=e5](V4)
-            \tikzset{EdgeStyle/.append style = {bend right}}
-            \Edge[label=e1](V2)(V1)
-            \tikzset{EdgeStyle/.append style = {bend right}}
-            \Edge[label=e2](V1)(V2)
-        \end{tikzpicture}
-        
-        \begin{center}
-        M (G):
-        \end{center}
-        \begin{tabular}{ccccccccc}
-            & e1 & e2 & e3 & e4 & e5 & e6 & e7 & e8 \\
-            V1 & 1  & 1  & 1  & 0  & 0  & 0  & 0  & 0  \\
-            V2 & 1  & 1  & 0  & 0  & 0  & 0  & 0  & 1  \\
-            V3 & 0  & 0  & 1  & 1  & 0  & 0  & 0  & 0  \\
-            V4 & 0  & 0  & 0  & 1  & 2  & 1  & 0  & 0  \\
-            V5 & 0  & 0  & 0  & 0  & 0  & 1  & 1  & 0  \\
-            V6 & 0  & 0  & 0  & 0  & 0  & 0  & 1  & 1 
-        \end{tabular}
-    \end{multicols}
+    \begin{figure}[hbt!]
+        \begin{multicols}{2}
+            \begin{center}
+            G\:
+            \end{center}
+            \begin{tikzpicture}[scale=1]
+                \tikzset{LabelStyle/.style= {fill = white}}
+                \Vertex[x=1, y=4]{V1}
+                \Vertex[x=4, y=4.5]{V2}
+                \Vertex[x=2, y=2.5]{V3}
+                \Vertex[x=0, y=2.2]{V4}
+                \Vertex[x=3.5, y=0]{V5}
+                \Vertex[x=4.2, y=2.3]{V6}
+                \Edge[label=e3](V1)(V3)
+                \Edge[label=e4](V3)(V4)
+                \Edge[label=e6](V4)(V5)
+                \Edge[label=e7](V5)(V6)
+                \Edge[label=e8](V6)(V2)
+                \Loop[dist=3cm,dir=WE, style={thick,-}, label=e5](V4)
+                \tikzset{EdgeStyle/.append style = {bend right}}
+                \Edge[label=e1](V2)(V1)
+                \tikzset{EdgeStyle/.append style = {bend right}}
+                \Edge[label=e2](V1)(V2)
+            \end{tikzpicture}
+            
+            \begin{center}
+            M (G):
+            \end{center}
+            \begin{tabular}{ccccccccc}
+                & e1 & e2 & e3 & e4 & e5 & e6 & e7 & e8 \\
+                V1 & 1  & 1  & 1  & 0  & 0  & 0  & 0  & 0  \\
+                V2 & 1  & 1  & 0  & 0  & 0  & 0  & 0  & 1  \\
+                V3 & 0  & 0  & 1  & 1  & 0  & 0  & 0  & 0  \\
+                V4 & 0  & 0  & 0  & 1  & 2  & 1  & 0  & 0  \\
+                V5 & 0  & 0  & 0  & 0  & 0  & 1  & 1  & 0  \\
+                V6 & 0  & 0  & 0  & 0  & 0  & 0  & 1  & 1 
+            \end{tabular}
+        \end{multicols}
+        \caption{Exemplo de matriz de incidência}
+    \end{figure}
     
     \vspace{0.5in}
     
@@ -221,14 +233,13 @@ Um grafo é simples se não possui laços ou arestas múltiplas, logo, tendo-se 
 	1	&0	&1	&1 \\
 	1	&1	&0	&1  \\
 	1	&1	&1	&0
-\end{bmatrix}
-\caption{Matriz de adjacência do grafo \textbf{G}}
-\]
+\end{bmatrix} \]
+
 \end{multicols}
+\caption{Exemplo de grafo \textbf{G} e matriz de adjacência \textbf{A(G)} simples}
 \end{figure}
 \textbf{obs}: Note que a diagonal principal da matriz indica se existem ou não, laços. Um número maior que 1 indicaria que existem mais de uma aresta ligando os dois vértices. Podem existir vértices de grau 0 em grafos simples.
 
-\newpage
 \subsubsection{Grafo bipartido}
 É um tipo de grafo simples o qual, uma vez que seus vértices são divididos em subconjuntos \textbf{X} e \textbf{Y}, possui cada aresta com uma de suas pontas no conjunto \textbf{X} e outra em \textbf{Y}.
 
@@ -251,6 +262,8 @@ Um grafo é simples se não possui laços ou arestas múltiplas, logo, tendo-se 
 
 Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é adjacente a todo vértice em Y. É escrito através da letra $\textbf{K}{mn}$, sendo |x| = m e |y| = n.
 
+\pagebreak
+
 \begin{center}
 	G\:
 	\begin{figure}[hbt!]
@@ -272,49 +285,51 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
 \subsection{Graus de um vértice}
 
     Cada vértice \textbf{V} de um grafo \textbf{G = (V, E)} possui um número \textbf{n} de arestas incidentes. Esse número \textbf{n} é denotado como o grau do vértice.
-
-    \newpage    
-    \begin{multicols}{2}
-        \begin{center}
-        G:
-        \end{center}
-        \begin{tikzpicture}[scale=1]
-            \tikzset{LabelStyle/.style= {fill = white}}
-            \Vertex[x=4, y=6]{V1}
-            \Vertex[x=0, y=3]{V2}
-            \Vertex[x=4, y=3]{V3}
-            \Vertex[x=0, y=0]{V4}
-            \Vertex[x=4, y=0]{V5}
-            \Edge[label=e1](V1)(V2)
-            \Edge[label=e2](V1)(V3)
-            \Edge[label=e3](V3)(V5)
-            \Edge[label=e4](V5)(V4)
-            \Edge[label=e5](V4)(V2)
-            \Edge[label=e6](V2)(V5)
-            \Loop[dist=3cm,dir=WE, style={thick,-}, label=e7](V2)
-        \end{tikzpicture}
     
-        A(G):
-        \begin{tabular}{cccccc}
-            & V1 & V2 & V3 & V4 & V5 \\
-            V1 & 0  & 1  & 1  & 0  & 0  \\
-            V2 & 1  & 1  & 0  & 1  & 1  \\
-            V3 & 1  & 0  & 0  & 0  & 1  \\
-            V4 & 0  & 1  & 0  & 0  & 1  \\
-            V5 & 0  & 1  & 1  & 1  & 0 
-        \end{tabular}
+    \begin{figure}[hbt!]
+        \begin{multicols}{2}
+            \begin{center}
+            G
+            \end{center}
+            \begin{tikzpicture}[scale=1]
+                \tikzset{LabelStyle/.style= {fill = white}}
+                \Vertex[x=4, y=6]{V1}
+                \Vertex[x=0, y=3]{V2}
+                \Vertex[x=4, y=3]{V3}
+                \Vertex[x=0, y=0]{V4}
+                \Vertex[x=4, y=0]{V5}
+                \Edge[label=e1](V1)(V2)
+                \Edge[label=e2](V1)(V3)
+                \Edge[label=e3](V3)(V5)
+                \Edge[label=e4](V5)(V4)
+                \Edge[label=e5](V4)(V2)
+                \Edge[label=e6](V2)(V5)
+                \Loop[dist=3cm,dir=WE, style={thick,-}, label=e7](V2)
+            \end{tikzpicture}
         
-        \vspace{0.4in}
-        Graus:
-        \begin{tabular}{cc}
-            & Grau \\
-            V1 & 2    \\
-            V2 & 5    \\
-            V3 & 2    \\
-            V4 & 2    \\
-            V5 & 3   
-        \end{tabular}
-    \end{multicols}
+            A(G):
+            \begin{tabular}{cccccc}
+                & V1 & V2 & V3 & V4 & V5 \\
+                V1 & 0  & 1  & 1  & 0  & 0  \\
+                V2 & 1  & 1  & 0  & 1  & 1  \\
+                V3 & 1  & 0  & 0  & 0  & 1  \\
+                V4 & 0  & 1  & 0  & 0  & 1  \\
+                V5 & 0  & 1  & 1  & 1  & 0 
+            \end{tabular}
+            
+            \vspace{0.4in}
+            Graus:
+            \begin{tabular}{cc}
+                & Grau \\
+                V1 & 2    \\
+                V2 & 5    \\
+                V3 & 2    \\
+                V4 & 2    \\
+                V5 & 3   
+            \end{tabular}
+        \end{multicols}
+        \caption{Grafo \textbf{G}, matriz de adjacência \textbf{A(G)} e tabela de graus dos vértices do grafo \textbf{G}}
+    \end{figure}
     
     Note que os laços incidem duas vezes no vértice, portanto ele equivale a 2 graus, como o caso da aresta \textbf{e7}.
     
@@ -324,7 +339,7 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
 
     A sequência de graus de um grafo \textbf{G = (V, E)} é a sequência não-crescente do grau de todos os vértices \textbf{V} desse grafo. 
     
-    \indent Para o caso da figura anterior a sequência seria:
+    \indent Para o caso da figura 9 a sequência seria:
     
     \begin{center}
      5, 3, 2, 2, 2
@@ -332,5 +347,11 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
 
 
 \section{Conclusão}
+
+    A partir da elaboração do algoritmo é possível observar a dependência entre os conceitos de grafos e a obrigatoriedade de um conhecimento prévio para este caso de algoritmo genérico, uma vez que suas respostas são também genéricas e possuem significados distintos dependendo da aplicação. 
+    
+    \indent É possível observar ainda a utilidade da representação matricial, visto que um grafo dotado de excessiva complexidade se torna penoso para ser analisado graficamente. A matriz permite a automatização desse processo, que é repetitivo e padronizado.
+    
+    \indent Apesar da praticidade proporcionada pelo algoritmo, uma representação matricial não deve ser dita como a representação precisa de um grafo. Um grafo possui uma única posição relativa, no qual não é considerada em uma matriz, ou seja, a representação matricial pode ser escrita a partir de uma representação gráfica, mas não o oposto.
 
 \end{document}
