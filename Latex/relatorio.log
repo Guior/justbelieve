@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.26)  7 APR 2019 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.26)  7 APR 2019 21:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -705,42 +705,43 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./circuito.png>]
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 55.
+<exemplo.png, id=15, 284.9847pt x 129.6042pt>
+File: exemplo.png Graphic file (type png)
+<use exemplo.png>
+Package pdftex.def Info: exemplo.png  used on input line 54.
+(pdftex.def)             Requested size: 455.24411pt x 207.04462pt.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 63.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
- [2]
-Overfull \hbox (0.73277pt too wide) in paragraph at lines 175--184
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
+ [2 <./exemplo.png>] [3]
+Overfull \hbox (0.73277pt too wide) in paragraph at lines 183--192
 [] 
  []
 
-
-Overfull \vbox (15.19263pt too high) has occurred while \output is active []
-
-
-[3] [4] [5] (./relatorio.aux) ) 
+[4] [5] (./relatorio.aux) ) 
 Here is how much of TeX's memory you used:
- 15777 strings out of 492616
- 299298 string characters out of 6135177
- 396066 words of memory out of 5000000
- 19364 multiletter control sequences out of 15000+600000
+ 15782 strings out of 492616
+ 299372 string characters out of 6135177
+ 387066 words of memory out of 5000000
+ 19368 multiletter control sequences out of 15000+600000
  44724 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,9n,63p,810b,1087s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.e
-nc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a
-.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/tex
-mf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on relatorio.pdf (5 pages, 413810 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}<
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
+></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-d
+ist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on relatorio.pdf (5 pages, 942097 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 57 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
