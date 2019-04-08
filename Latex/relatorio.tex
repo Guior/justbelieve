@@ -85,7 +85,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
     \begin{multicols}{2}
         \begin{center}
-        G:
+        G\:
         \end{center}
         \begin{tikzpicture}[scale=0.8]
             \Vertex[x=1, y=4]{V1}
@@ -103,7 +103,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
         \end{tikzpicture}
         
         \begin{center}
-        A(G):
+        A (G):
         \end{center}
         \begin{tabular}{ccccccc}
                 & V1 & V2 & V3 & V4 & V5 & V6 \\
@@ -126,7 +126,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
 \subsubsection{Matriz de incidência |M|}
 
-    A matriz de adjacência \textbf{M(G)} é uma matriz com \textbf{|V|} linhas e \textbf{|E|} colunas, tal que seus elementos (\textbf{aij}) representam quantas vezes a aresta \textbf{ej} incide no vértice \textbf{Vi}.
+    A matriz de adjacência \textbf{M (G) } é uma matriz com \textbf{|V|} linhas e \textbf{|E|} colunas, tal que seus elementos (\textbf{aij}) representam quantas vezes a aresta \textbf{ej} incide no vértice \textbf{Vi}.
     
     \vspace{0.5in}
     
@@ -134,7 +134,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
     \begin{multicols}{2}
         \begin{center}
-        G:
+        G\:
         \end{center}
         \begin{tikzpicture}[scale=1]
             \tikzset{LabelStyle/.style= {fill = white}}
@@ -157,7 +157,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
         \end{tikzpicture}
         
         \begin{center}
-        M(G):
+        M (G):
         \end{center}
         \begin{tabular}{ccccccccc}
             & e1 & e2 & e3 & e4 & e5 & e6 & e7 & e8 \\
@@ -176,7 +176,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
     
 \subsection{Grafo simples}
 
-Um grafo é simples se não possui laços ou arestas múltiplas, logo, no exemplo de um grafo tendo $\textbf{V} = \{v1, v2, v3, v4\}$ e $\textbf{E} = \{e1, e2, e3, e4, e5\}$, sua matriz de adjacência \textbf{A} pode ser dada por:
+Um grafo é simples se não possui laços ou arestas múltiplas, logo, tendo-se como exemplo um grafo \textbf{G} possuindo $\textbf{V} = \{v1, v2, v3, v4\}$ e $\textbf{E} = \{e1, e2, e3, e4, e5\}$, sua matriz de adjacência \textbf{A} pode ser dada por:
  
 
     \begin{multicols}{2}
@@ -201,7 +201,40 @@ Um grafo é simples se não possui laços ou arestas múltiplas, logo, no exempl
 \end{multicols}
 \textbf{obs}: Note que a diagonal principal da matriz indica se existem ou não, laços. Um número maior que 1 indicaria que existem mais de uma aresta ligando os dois vértices. Podem existir vértices de grau 0 em grafos simples.
 \subsubsection{Grafo bipartido}
-\subsubsection{Bipartido completo}
+É um tipo de grafo simples o qual, uma vez que seus vértices são divididos em subconjuntos \textbf{X} e \textbf{Y}, possui cada aresta com uma de suas pontas no conjunto \textbf{X} e outra em \textbf{Y}.
+
+\begin{center}
+	G\:
+
+        \begin{tikzpicture}[scale=1]
+            \Vertex[x=1, y=4]{V1}
+            \Vertex[x=4, y=4]{V2}
+            \Vertex[x=4, y=1]{V3}
+            \Vertex[x=1, y=1]{V4}
+	    \Edges(V1,V2, V1,V4,V3,V4, V3,V2)
+	    \caption{$X = \{V1, V2\}$ $ Y = \{V3, V4\}$}
+
+        \end{tikzpicture}
+\end{center}\hspace{1cm}
+
+Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é adjacente a cada vértice em Y. É escrito através da letra $\textbf{K}{mn}$, sendo |x| = m e |y| = n.
+
+\begin{center}
+	G\:
+
+        \begin{tikzpicture}[scale=1]
+            \Vertex[x=2, y=4]{V1}
+            \Vertex[x=4, y=4]{V2}
+            \Vertex[x=6, y=1]{V3}
+            \Vertex[x=3, y=1]{V4}
+	    \Vertex[x=0, y=1]{V5}
+	    \Edges(V1,V5, V1,V4, V1,V3, V2,V5, V2,V4, V2, V3)
+        \end{tikzpicture}
+
+	\caption{$X = \{V1, V2\}$ $Y = \{V3, V4, V5\}$}
+\end{center}
+
+
 \subsection{Graus de um grafo}
 \subsection{Sequência gráfica}
 \section{Conclusão}
