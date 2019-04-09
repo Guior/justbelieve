@@ -132,7 +132,7 @@ Pode se dizer, então, que um grafo pode ser representado como: \[ G = (N, M, \v
                 \Edge(V1)(V2)
             \end{tikzpicture}
             
-            A(G):
+            A (G):
             \begin{tabular}{ccccccc}
                     & V1 & V2 & V3 & V4 & V5 & V6 \\
                     V1 & 0  & 2  & 1  & 0  & 0  & 0  \\
@@ -236,7 +236,7 @@ Um grafo é simples se não possui laços ou arestas múltiplas, logo, tendo-se 
 \end{bmatrix} \]
 
 \end{multicols}
-\caption{Exemplo de grafo \textbf{G} e matriz de adjacência \textbf{A(G)} simples}
+\caption{Exemplo de grafo \textbf{G} e matriz de adjacência \textbf{A (G)} simples}
 \end{figure}
 \textbf{obs}: Note que a diagonal principal da matriz indica se existem ou não, laços. Um número maior que 1 indicaria que existem mais de uma aresta ligando os dois vértices. Podem existir vértices de grau 0 em grafos simples.
 
@@ -307,7 +307,7 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
                 \Loop[dist=3cm,dir=WE, style={thick,-}, label=e7](V2)
             \end{tikzpicture}
         
-            A(G):
+            A (G):
             \begin{tabular}{cccccc}
                 & V1 & V2 & V3 & V4 & V5 \\
                 V1 & 0  & 1  & 1  & 0  & 0  \\
@@ -328,7 +328,7 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
                 V5 & 3   
             \end{tabular}
         \end{multicols}
-        \caption{Grafo \textbf{G}, matriz de adjacência \textbf{A(G)} e tabela de graus dos vértices do grafo \textbf{G}}
+        \caption{Grafo \textbf{G}, matriz de adjacência \textbf{A (G)} e tabela de graus dos vértices do grafo \textbf{G}}
     \end{figure}
     
     Note que os laços incidem duas vezes no vértice, portanto ele equivale a 2 graus, como o caso da aresta \textbf{e7}.
@@ -345,7 +345,28 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
      5, 3, 2, 2, 2
     \end{center}
 
+\section{Resultados}
 
+O algorítmo ou \textit{script} mostrou-se eficaz ao tratar e testar as mais diversas matrizes de adjacência inseridas. Este, porém, não realizando testes quanto à legitimidade dos dados, confiando totalmente no usuário. Foram realizados 10 testes com grafos contendo variadas quantidades de vértices.
+
+Para elaboração do programa e teoria aplicada nesse relatório, foram utilizados como referência o material providenciado pelo professor, além do item de bibliografia básica ``Grafos: Conceitos, algorítmos e aplicações''. 
+
+\begin{figure}[hbt!]
+\begin{multicols}{2}
+	\[
+	\begin{bmatrix}
+	0	&0	&1 	&1	&1\\
+	0	&0	&1	&1 	&1\\
+	1	&1	&0	&1  	&1\\
+	1	&1	&1	&0	&1\\
+	1	&1	&1	&1	&0
+
+\end{bmatrix} \]
+
+\includegraphics[width=\linewidth]{outputprog.png}
+\end{multicols}
+\caption{Matriz de adjacência genérica para teste de grafos simples e o respectivo \textit{output}. }
+\end{figure}
 \section{Conclusão}
 
     A partir da elaboração do algoritmo é possível observar a dependência entre os conceitos de grafos e a obrigatoriedade de um conhecimento prévio para este caso de algoritmo genérico, uma vez que suas respostas são também genéricas e possuem significados distintos dependendo da aplicação. 
@@ -354,4 +375,6 @@ Um grafo é dado por \textbf{Bipartido completo} quando cada vértice em X é ad
     
     \indent Apesar da praticidade proporcionada pelo algoritmo, uma representação matricial não deve ser dita como a representação precisa de um grafo. Um grafo possui uma única posição relativa, no qual não é considerada em uma matriz, ou seja, a representação matricial pode ser escrita a partir de uma representação gráfica, mas não o oposto.
 
+\section{Referências bibliográficas}
+GOLDBARG, Marco e Elizabeth. \textbf{Grafos: Conceitos, algorítmos e aplicações.}1.ed.- São Paulo: Elsevier,2012.
 \end{document}
