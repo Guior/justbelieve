@@ -17,9 +17,9 @@ def menu():
     elif entrada == 1:
         adjacencia()
     elif entrada == 2:
-        pass
+        peso()
 
-def leitura():
+def leituraAdjacencia():
     try: # caso ocorra um erro (só possível caso a matriz esteja vaiza ou não esteja inserida corretamente) executa o except
         with open("A.txt", "r") as file:
             # lê todos os elementos do arquivo, substitui as quebras de linha por espaço e separa os itens por espaço
@@ -114,7 +114,7 @@ def verificaEuler(listagraus):
     print("\nO grafo é Euleriano")
 
 def adjacencia():
-    matrizAdjacencia = leitura()
+    matrizAdjacencia = leituraAdjacencia()
     ehSimples = verificaSimples(matrizAdjacencia)
     listagraus = verificaGraus(matrizAdjacencia)
     verificaArestas(matrizAdjacencia)
@@ -129,5 +129,24 @@ def adjacencia():
 
     verificaEuler(listagraus)
     print("\n")
+
+def leituraPeso():
+    try: # caso ocorra um erro (só possível caso a matriz esteja vaiza ou não esteja inserida corretamente) executa o except
+        with open("P.txt", "r") as file:
+            # lê todos os elementos do arquivo, substitui as quebras de linha por espaço e separa os itens por espaço
+            # '[-1]' ignora o último caracter do arquivo, pois seria uma quebra de linha que foi substituida
+            grafo = file.read().replace("\n", " ")[:-1].split(" ")
+            # quantidade de linhas (que é igual ao de colunas) vai ser a raiz quadrada da quantidade de elementos
+            tamanho = int(sqrt(len(grafo)))
+            # converte todos os itens pra inteiro (padrão é string)
+            # separa os itens em listas do tamanho da quantidade de colunas e adiciona cada uma em 'grafo', formando uma matriz
+            grafo = [[int(grafo[i]) for i in range(0, len(grafo))][0+(i*tamanho):tamanho+(i*tamanho)] for i in range(0, tamanho)]
+        return grafo
+    except:
+        print("O arquivo da matriz, 'P.txt', está vazio ou não possui informações válidas. Por favor insira os dados e inicie o programa novamente")
+        quit()
+
+def peso():
+    matrizPeso = leituraPeso()
 
 menu()
