@@ -1,5 +1,24 @@
 from math import sqrt
 
+def menu():
+    while True:
+        try:
+            entrada = int(input("Digite uma das opções:\n1 - Leitura da matriz adjacência\n2 - Leitura da matriz dos pesos\n\n0 - Sair\n\nEntrada: "))
+        except:
+            print("\nEntrada inválida\n")
+            continue
+        if entrada > 2 or entrada < 0:
+            print("\nEntrada inválida\n")
+            continue
+        break
+
+    if entrada == 0:
+        quit()
+    elif entrada == 1:
+        adjacencia()
+    elif entrada == 2:
+        pass
+
 def leitura():
     try: # caso ocorra um erro (só possível caso a matriz esteja vaiza ou não esteja inserida corretamente) executa o except
         with open("A.txt", "r") as file:
@@ -34,9 +53,9 @@ def verificaSimples(matrizAdjacencia):
                 motivos.append("Há arestas múltiplas entre v%d e v%d" %(linha+1, coluna+1))
 
     if ehSimples:
-        print("O grafo é simples, pois não possui arestas múltiplas ou laços")
+        print("\nO grafo é simples, pois não possui arestas múltiplas ou laços")
     else:
-        print("O grafo não é simples\n\nMotivos: ")
+        print("\nO grafo não é simples\n\nMotivos: ")
         for i in motivos: # percorre a lista de motivos e printa eles
             print(i)
 
@@ -66,6 +85,8 @@ def verificaGraus(matrizAdj):
     else:                               # Se impar, a função retorna falso
         print("A sequência de graus do grafo é: ", lista_ncrescente, "\n")
 
+    return lista_ncrescente
+
 def verificaArestas(matrizAdjacencia):
     quantidadeArestas = 0
     for linha in range(0, len(matrizAdjacencia)):
@@ -82,14 +103,23 @@ def verificaCompleto(matrizAdjacencia):
         else:
             contador += 1
     return contador == 0
-    
-def main():
+
+def verificaEuler(listagraus):
+    for elemento in listagraus:
+        if (elemento % 2) == 0:
+            continue
+        else:
+            print("\nO grafo não é Euleriano")
+            return 0
+    print("\nO grafo é Euleriano")
+
+def adjacencia():
     matrizAdjacencia = leitura()
     ehSimples = verificaSimples(matrizAdjacencia)
-    verificaGraus(matrizAdjacencia)
+    listagraus = verificaGraus(matrizAdjacencia)
     verificaArestas(matrizAdjacencia)
     # a função de verificaSimples é chamada dentro de verificaCompleto, já que seu return será utilizado
-    if ehSimples: 
+    if ehSimples:
         if(verificaCompleto(matrizAdjacencia)):
             print("O grafo é completo")
         else:
@@ -97,4 +127,7 @@ def main():
     else:
         print("O grafo não é completo")
 
-main()
+    verificaEuler(listagraus)
+    print("\n")
+
+menu()
