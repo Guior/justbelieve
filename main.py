@@ -140,13 +140,57 @@ def leituraPeso():
             tamanho = int(sqrt(len(grafo)))
             # converte todos os itens pra inteiro (padrão é string)
             # separa os itens em listas do tamanho da quantidade de colunas e adiciona cada uma em 'grafo', formando uma matriz
-            grafo = [[int(grafo[i]) for i in range(0, len(grafo))][0+(i*tamanho):tamanho+(i*tamanho)] for i in range(0, tamanho)]
-        return grafo
+            grafo = [[grafo[i] for i in range(0, len(grafo))][0+(i*tamanho):tamanho+(i*tamanho)] for i in range(0, tamanho)]
     except:
         print("O arquivo da matriz, 'P.txt', está vazio ou não possui informações válidas. Por favor insira os dados e inicie o programa novamente")
         quit()
 
+    for linha in range(0, len(grafo)):
+        for coluna in range(0, len(grafo[0])):
+            if grafo[linha][coluna] == "X":
+                grafo[linha][coluna] =float("inf")
+            else:
+                grafo[linha][coluna] = float(grafo[linha][coluna])
+    return grafo
+
 def peso():
     matrizPeso = leituraPeso()
+
+    pesos = matrizPeso[0].copy()
+    excluirVertice = []
+    caminhos = []
+
+    i = 0
+    contador = float("inf")
+
+    for j in range(0, (len(pesos) - 1)):
+        caminhos.append("V1")
+
+    for j in range(0, len(pesos)):
+        if pesos[j] != float("inf"):
+            caminhos[j-1] += ("->V%s"%(j+1))
+
+    while True:
+        for coluna in range(0, len(pesos)):
+            if float(coluna) not in excluirVertice:
+                if (pesos[coluna] < contador):
+                    contador = pesos[coluna]
+                    i = coluna
+
+        excluirVertice.append(i)
+
+        contador = float("inf")
+        for coluna in range(0, len(matrizPeso[i])):
+            if coluna not in excluirVertice:
+                if (pesos[i] + matrizPeso[i][coluna] < pesos[coluna]):
+                    pesos[coluna] = pesos[i] + matrizPeso[i][coluna]
+                    caminhos[coluna-1] = caminhos[i-1] + ("->V%s" %(coluna+1))
+
+        if len(excluirVertice) == len(matrizPeso):
+            break
+
+    print("\n")
+    for j in range(0, len(caminhos)):
+        print("O menor caminho de V1 a V%d é: %s\nCom peso: %.2f\n"%(j+2, caminhos[j], pesos[j+1]))
 
 menu()
