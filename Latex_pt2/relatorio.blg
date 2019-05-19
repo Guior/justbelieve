@@ -1,0 +1,5 @@
+[0] Config.pm:304> INFO - This is Biber 2.12
+[1] Config.pm:307> INFO - Logfile is 'relatorio.blg'
+[48] biber:315> INFO - === sáb mai 18, 2019, 18:24:40
+[132] Utils.pm:209> ERROR - Cannot find control file 'relatorio.bcf'! - Did latex run successfully on your .tex file before you ran biber?
+[133] Biber.pm:114> INFO - ERRORS: 1
