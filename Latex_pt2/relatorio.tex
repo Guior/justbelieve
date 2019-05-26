@@ -31,14 +31,14 @@ right=2cm,
 Desde a elaboração do primeiro relatório, conteúdo relevante foi acrescentado ao nosso repertório, como caminhos, trilhas e passeios por um grafo, árvores, grafos conexos e grafos isomorfos, contudo, os objetos em foco são os grafos Eulerianos e o algoritmo de Dijsktra, o qual propõe uma resolução para o problema do caminho de peso mínimo.
 
 \section{Conceitos Eulerianos}
-Muitos dos teoremas inicialmente denotados por \textbf{Leonard Paul Euler} se utilizam dos conceitos relacionados a passeios e suas derivações, como o \textbf{Tour de Euler}, este sendo diretamente ligado ao \textbf{grafo de Euler} e por fim,  \texbf{percurso pré-Euleriano}. Serão explicados a seguir:
+Muitos dos teoremas inicialmente denotados por \textbf{Leonard Paul Euler} se utilizam dos conceitos relacionados a passeios e suas derivações, como o \textbf{Tour de Euler}, este sendo diretamente ligado ao \textbf{grafo de Euler} e por fim,  \textbf{percurso pré-Euleriano}. Serão explicados a seguir:
 
 \subsection{O Tour ou cadeia de Euler}
 Passeios de uma forma geral, podem ser abertos ou fechados, tours são caminhos fechados os quais incluem toda aresta do grafo em questão, já o \textbf{Tour de Euler} requere que a aresta apareça apenas uma vez no passeio fechado.
 
 \subsection{Grafo Euleriano}
 
-Um grafo \textbf{G} = (V, E) é euleriano se apresenta um ciclo (caminho fechado) que contenha todas as arestas deste \textbf{G}. A presença de um tour de euler também configura um grafo como euleriano. Outro importante fato a se notar é o que grafos eulerianos não possuem graus ímpares e a presença de uma trilha de euler não o torna um grau euleriano se este possuir grau (s) ímpare (s). 
+Um grafo \textbf{G} = (V, E) é euleriano se apresenta um ciclo (caminho fechado) que contenha todas as arestas deste \textbf{G}. A presença de um tour de euler também configura um grafo como euleriano. Outro importante fato a se notar é o que grafos eulerianos não possuem graus ímpares e a presença de uma trilha de euler não o torna um grau euleriano se este possuir grau (s) ímpar (es). 
 
 \begin{figure}[!hbt]
         \begin{center}
@@ -79,8 +79,7 @@ em todas arestas do grafo \textbf{G}.
 
 \begin{center}
 
-	\begin{figure}[hbt]
-		\centering
+	\begin{figure}[!hbt]
 		\includegraphics[width=5cm, height= 5cm]{preeuler.png}
 
 	\caption{Grafo de sequência 3-7-1-3-4-5-3-7-2-6-5-7-3 se configura como pré euleriano -- Grafos: Conceitos, algoritmos e aplicações (2014) }
@@ -94,13 +93,12 @@ Um grafo \textbf{G} = (V, E) é ponderado quando pesos são dados a cada aresta.
 
 Teorizado pelo holandês Edsger Dijkstra, teria o objetivo de resolver problemas relacionados ao caminho mais curto num grafo simples direcionado ou não. Deve ser aplicado em grafos que contenham arestas de peso não negativo, porém, é possível adicionar um valor único que deixe todas arestas positivas.
 
-\\
 Partindo do pressuposto que os pesos p (e) são maiores ou iguais a zero, o algoritmo se baseia nos seguintes passos:
 
 \begin{enumerate}
 	\item Considerar ``i'' como sendo o contador para índice do vértice atual e ``S'' como o subconjunto dos vértices de G, i inicia em 0 e S contendo o primeiro vértice definido no passo a seguir;
-	\item Definir o vértice inicial v0 (vértice de onde o algoritmo partirá) como rótulo zero, todos os outros vertices devem receber o rótulo infinito;
-	\item Para todos os vértices adjacentes à v0, definir seus rótulos com o mesmo peso das arestas que os ligam, isto se dá ao fato que qualquer valor de cada aresta será menor que o valor de infinito {\infty};
+	\item Definir o vértice inicial v0 (vértice de onde o algoritmo partirá) como rótulo zero, todos os outros vértices devem receber o rótulo infinito;
+	\item Para todos os vértices adjacentes à v0, definir seus rótulos com o mesmo peso das arestas que os ligam, isto se dá ao fato que qualquer valor de cada aresta será menor que o valor de infinito {$\infty$};
 
 	\item O vértice adjacente cujo caminho é o mais curto será o escolhido para a próxima iteração, ``i'' é iterado. O vértice atual é adicionado à lista de vértices visitados;
 	\item É repetido o processo de rotular os vértices adjacentes ainda não visitados, porém, se o peso da aresta que liga o vértice da iteração atual e o vértice adjacente for menor que o valor rotulado deste, seu rótulo é substituído pela soma de pesos atual;

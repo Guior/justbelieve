@@ -147,8 +147,8 @@ def leituraPeso():
 
     for linha in range(0, len(grafo)):
         for coluna in range(0, len(grafo[0])):
-            if grafo[linha][coluna] == "X":
-                grafo[linha][coluna] =float("inf")
+            if grafo[linha][coluna] == "0":
+                grafo[linha][coluna] = float("inf")
             else:
                 grafo[linha][coluna] = float(grafo[linha][coluna])
     return grafo
