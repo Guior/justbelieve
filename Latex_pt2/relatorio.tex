@@ -105,47 +105,33 @@ São grafos que possuem pesos associados aos seus vértices ou arestas, tais pes
                 \Vertex[x=0, y=-2]{V4}
 		\Vertex[x=3, y=-2]{V5}
                 \Vertex[x=2, y=-5]{V6}
-		\Edge[LabelOut= true, label= 3](V1)(V2)
-		\Edge[LabelOut= true, label= 5](V1)(V3)
-		\Edge[LabelOut= true, label= 7](V1)(V4)
-		\Edge[LabelOut= true, label= 3](V2)(V4)
-		\Edge[LabelOut= true, label= 1](V2)(V5)
-		\Edge[LabelOut= true, label= 1](V3)(V4)
-		\Edge[LabelOut= true, label= 2](V3)(V6)
-		\Edge[LabelOut= true, label= 6](V4)(V6)
-		\Edge[LabelOut= true, label= 1](V4)(V5)
-		\Edge[LabelOut= true, label= 3](V5)(V6)
+		\Edge[label= 3](V1)(V2)
+		\Edge[label= 5](V1)(V3)
+		\Edge[label= 7](V1)(V4)
+		\Edge[label= 3](V2)(V4)
+		\Edge[label= 1](V2)(V5)
+		\Edge[label= 1](V3)(V4)
+		\Edge[label= 2](V3)(V6)
+		\Edge[label= 6](V4)(V6)
+		\Edge[label= 1](V4)(V5)
+		\Edge[label= 3](V5)(V6)
 
             \end{tikzpicture}
 	    \caption{Exemplo de ponderação de grafo}
 
         \end{center}
     \end{figure}
-    
-
-
-
-
-
-
 
 \newpage
 \subsection{O algoritmo}
 
+NA figura 3, vamos considerar a necessidade de se transportar do vértice V1 para o vértice V4. Partindo somente da análise da quantidade de arestas o caminho V1V4 seria, de fato, o mais rápido; porém, se levarmos em consideração os pesos, não seria o mais otimizado, visto que esse mesmo vértice tem peso 7. Sendo assim, o caminho com menor peso seria V1V2V5V4, com peso 5. 
+
+Esse problema é conhecido como problema do custo mínimo, ou problema do peso mínimo, e o Algoritmo de Dijkstra trata exatamente da resolução desse problema.
+
 Teorizado pelo holandês Edsger Dijkstra, teria o objetivo de resolver problemas relacionados ao caminho mais curto num grafo simples direcionado ou não. Deve ser aplicado em grafos que contenham arestas de peso não negativo, porém, é possível adicionar um valor único que deixe todas arestas positivas.
 
-Partindo do pressuposto que os pesos p (e) são maiores ou iguais a zero, o algoritmo se baseia nos seguintes passos:
-
-\begin{enumerate}
-	\item Considerar ``i'' como sendo o contador para índice do vértice atual e ``S'' como o subconjunto dos vértices de G, i inicia em 0 e S contendo o primeiro vértice definido no passo a seguir;
-	\item Definir o vértice inicial v0 (vértice de onde o algoritmo partirá) como rótulo zero, todos os outros vértices devem receber o rótulo infinito;
-	\item Para todos os vértices adjacentes à v0, definir seus rótulos com o mesmo peso das arestas que os ligam, isto se dá ao fato que qualquer valor de cada aresta será menor que o valor de infinito {$\infty$};
-
-	\item O vértice adjacente cujo caminho é o mais curto será o escolhido para a próxima iteração, ``i'' é iterado. O vértice atual é adicionado à lista de vértices visitados;
-	\item É repetido o processo de rotular os vértices adjacentes ainda não visitados, porém, se o peso da aresta que liga o vértice da iteração atual e o vértice adjacente for menor que o valor rotulado deste, seu rótulo é substituído pela soma de pesos atual;
-	\item Repetir até não repetir mais vértices, com ``i'' sendo igual à quantidade de vértices de \textbf{G} --- 1, ou ter chegado ao vértice desejado;
-
-\end{enumerate}
+\newpage
 \section{Conclusão}
 
 Ambos os temas abordados neste relatório são de extrema importância para a estruturação de dados e técnicas relacionadas, tendo o algoritmo de Dijkstra como destaque. Sua utilidade varia desde a aplicação em algoritmos ainda mais extensos para redes sociais até engenharia de tráfego e algoritmos que tenham a função de determinar o caminho mais curto de uma rede de estradas. Apesar disso, o procedimento ainda apresenta uma ineficiência quanto a grafos não direcionados ou grafos que possuam \textit{dead ends}.
