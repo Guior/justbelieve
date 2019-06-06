@@ -144,7 +144,7 @@ def leituraPeso(): #repete o processo de leitura da matriz adjacência
             grafo = [[grafo[i] for i in range(0, len(grafo))][0+(i*tamanho):tamanho+(i*tamanho)] for i in range(0, tamanho)]
         if len(grafo) == 0:
             raise ValueError()
-    
+
         for linha in range(0, len(grafo)):
             for coluna in range(0, len(grafo[0])):
                 if grafo[linha][coluna] == "0":
@@ -159,12 +159,13 @@ def leituraPeso(): #repete o processo de leitura da matriz adjacência
 def peso():
     matrizPeso = leituraPeso()
 
+    #lista que salva o menor peso até cada aresta, inicialmente são os pesos a partir do vértice V1
     pesos = matrizPeso[0].copy()
-    excluirVertice = []
+    ignorar = [] #lista que salva vértices já verificados
     caminhos = []
 
     i = 0
-    contador = float("inf")
+    comparador = float("inf")
 
     for j in range(0, (len(pesos) - 1)):
         caminhos.append("V1")
@@ -174,22 +175,26 @@ def peso():
             caminhos[j-1] += ("->V%s"%(j+1))
 
     while True:
-        for coluna in range(0, len(pesos)):
-            if float(coluna) not in excluirVertice:
-                if (pesos[coluna] < contador):
-                    contador = pesos[coluna]
+        for coluna in range(0, len(pesos)): #percorre todos os vértices
+            if float(coluna) not in ignorar:
+                if (pesos[coluna] < comparador): #garante que ao final da iteração tenha pego o elemento com menor peso
+                    comparador = pesos[coluna]
                     i = coluna
 
-        excluirVertice.append(i)
+        ignorar.append(i) #adiciona o vértice resultante da iteração em ignorar
+        comparador = float("inf")
 
-        contador = float("inf")
+        #percorre todos os vértices adjacentes ao selecionado
         for coluna in range(0, len(matrizPeso[i])):
-            if coluna not in excluirVertice:
+            if coluna not in ignorar:
+                #se o peso do vértice atual + o peso pra chegar no adjacente
+                #for maior que o salvo na lista pesos atualiza para esse caminho
                 if (pesos[i] + matrizPeso[i][coluna] < pesos[coluna]):
                     pesos[coluna] = pesos[i] + matrizPeso[i][coluna]
                     caminhos[coluna-1] = caminhos[i-1] + ("->V%s" %(coluna+1))
 
-        if len(excluirVertice) == len(matrizPeso):
+        #se todos os vértices estiverem em ignorar, acaba o programa
+        if len(ignorar) == len(matrizPeso):
             break
 
     print("\n")
